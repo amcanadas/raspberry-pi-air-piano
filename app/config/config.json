@@ -1,0 +1,5 @@
+{
+    "camera_size":[320,240],
+    "camera_framerate":20,
+    "bgs_mog_params":[500,6,0.5,0.02]
+}
