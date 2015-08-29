@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Lyght Piano
+Air Piano
 amcanadas@gmail.com
 
 

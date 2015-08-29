@@ -14,12 +14,48 @@
 
 import sys
 import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../app'))
 import shlex
 
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#sys.path.insert(0, os.path.abspath('.'))
+# Mock out certain modules/classes while building documentation
+class Mock(object):
+    __all__ = []
+
+    def __init__(self, *args, **kw):
+        pass
+
+    def __call__(self, *args, **kw):
+        return Mock()
+
+    def __mul__(self, other):
+        return Mock()
+
+    def __and__(self, other):
+        return Mock()
+
+    def __bool__(self):
+        return False
+
+    def __nonzero__(self):
+        return False
+
+    @classmethod
+    def __getattr__(cls, name):
+        if name in ('__file__', '__path__'):
+            return '/dev/null'
+        else:
+            return Mock()
+
+sys.modules['numpy'] = Mock()
+sys.modules['pygame'] = Mock()
+sys.modules['pygame.locals'] = sys.modules['pygame'].locals
+sys.modules['picamera'] = Mock()
+sys.modules['picamera.array'] = sys.modules['picamera'].array
+sys.modules['cv2'] = Mock()
+sys.modules['scikits'] = Mock()
+sys.modules['scikits.samplerate'] = sys.modules['scikits'].samplerate
+sys.modules['scikits.samplerate.resample'] = sys.modules['scikits'].samplerate.resample
+
 
 # -- General configuration ------------------------------------------------
 
