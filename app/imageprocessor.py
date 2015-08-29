@@ -32,7 +32,10 @@ class ImageProcessor(threading.Thread):
                             break
             # if frame found, process it
             if ready > -1:
-                rtopencv.RTOpenCV.callback(rtopencv.RTOpenCV, rtopencv.RTOpenCV.streams[ready].array)
+		try:
+                    rtopencv.RTOpenCV.callback(rtopencv.RTOpenCV, rtopencv.RTOpenCV.streams[ready].array)
+		except:
+		    print('Exception in image processor when callin callback')
                 self.num_frames+=1
                 # when processed, mark stream empty
                 rtopencv.RTOpenCV.status[ready]='Empty'
