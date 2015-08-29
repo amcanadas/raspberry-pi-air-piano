@@ -45,28 +45,29 @@ Ins
 
 Open a console window
 
-First, update the entire system:
+First, update the entire system with this two commands::
     $ sudo apt-get update
     $ sudo apt-get upgrade
 
-Get the source code
+Get Air Piano source code::
     $ git clone https://github.com/amcanadas/raspberry-pi-air-piano
 
-Get into the new created folder
+Get into the new created folder::
     $ cd raspberry-pi-air-piano
 
-Then, install OpenCV2, the computer vision library:
+Then, install the dependencies, starting whith OpenCV, the computer vision library::
     $ sudo apt-get install python-opencv
 
-More complicated and time consuming is installing the resampling library, be patient. Use this commands to download/compile:
+More complicated and time consuming is installing the resampling library, be patient. Use this commands to download/compile::
     $ wget http://www.mega-nerd.com/SRC/libsamplerate-0.1.8.tar.gz
     $ tar xvfz libsamplerate-0.1.8.tar.gz
     $ cd libsamplerate-0.1.8.tar.gz
     $ ./configure
     $ make
     $ make check
+
 At this point, all test should be passed. Finally, install the
-library and its python wrapper:
+library and its python wrapper::
     $ sudo make install
     $ sudo ldconfig -v
 
@@ -74,21 +75,21 @@ library and its python wrapper:
     $ sudo apt-get install python-dev
     $ sudo easy_install scikits.samplerate
 
-Finally clean samplerate sources
+Clean samplerate sources::
     $ cd ..
     $ rm -rf libsamplerate*
 
 Run the application
 -------------------
 
-Execute the application from the command line. Type:
+To run the application from the command line. Type::
     $ ./play.sh
 
 Alternativelly you can execute the application directly from
 the File Manager:
-	Open File Manager (icon on the task bar)
-	Navigate to the folder where Air Piano was downloaded
-	Double Click on play.sh. If a dialog appears, select execute.
+1 Open File Manager (icon on the task bar).
+2 Navigate to the folder where Air Piano was downloaded.
+3 Double Click on play.sh. If a dialog appears, select execute.
 
 
 Raspberry Pi 2 B (no overclock)
