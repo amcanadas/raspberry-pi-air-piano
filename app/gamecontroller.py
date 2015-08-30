@@ -60,7 +60,7 @@ class GameController:
             self.font = pygame.font.Font(None, 36)
             self.bigfont = pygame.font.Font(None, 64)
             self.smallfont = pygame.font.Font(None, 18)
-            title = self.bigfont.render("Piano Sketch", 1, (0xCA,0xFF,0x70))
+            title = self.bigfont.render("Air Piano", 1, (0xCA,0xFF,0x70))
             by = self.smallfont.render("By: ChopSueyTeam", 1, (0xCA,0xFF,0x70))
             background.blit(title, title.get_rect(top=20, left=512-title.get_width()/2))
             background.blit(by, by.get_rect(top=700, left=1004-by.get_width()))
