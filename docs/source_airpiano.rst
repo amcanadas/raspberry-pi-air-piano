@@ -1,7 +1,7 @@
 .. _source_airpiano:
 
-=============================
- Sources - ``airpiano`` Class
-=============================
+==============================
+ Sources - ``airpiano`` Module
+==============================
 
 .. automodule:: airpiano
